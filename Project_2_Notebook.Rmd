@@ -1,0 +1,165 @@
+---
+title: "Project 2A Draft"
+author: "Elissa Heredia"
+date: "2/19/2022"
+output:
+  html_document:
+    df_print: paged
+---
+
+**Previous Research Question**
+How does the SARS-COV-2 virus relate to the other chosen zoonotic viruses (rabies lyssavirus, MERS-CoV, and the West Nile virus) that infect humans?  Are there conserved regions among these zoonotic viruses that allow for them to infect people?
+
+**Refined Research Question**
+How does the SARS-CoV-2 virus combat protein against the human immune system compare to the combat protein of the chosen zoonotic viruses (rabies lyssavirus, MERS-CoV, and the West Nile virus)? Are there conserved regions among these zoonotic viruses that allow for them to fight off the human immune system while further spreading their infection? 
+
+**Previous Scientific Hypothesis**
+
+If parts of the SARS-CoV-2 virus genome are conserved among the rabies lyssavirus, MERS-CoV, and the West Nile viruses genomes, then these parts of the viruses are important for viral infectivity of humans.
+
+**Refined Scientific Hypothesis**
+
+If SARS-CoV-2 utilizes a specific combat protein against the human immune system that has conserved regions shared among rabies lyssavirus, MERS-CoV, and the West Nile Virus, then these conserved regions are important for fighting against the human immune system.
+
+
+DataBase#1: NCBI (Nucleotide)
+
+Method#1: BLAST search and Multiple sequence alignment
+
+DataBase#2: SWISS protein
+
+Method#2: Homology Modeling and Structural Bioinformatics
+
+Analysis Methods1: phylogenetic clustering
+
+Analysis Method2: 3D protein measurements
+
+***Data from NCBI Database.***
+
+**CHUNK 1**
+
+*The whole genome of SARS-COV-2 read in as a txt file.*
+
+```{r}
+SARS_CoV_2 <- read.delim("SARS_CoV_2_whole_genome.txt")
+
+#Check summary of file.
+summary(SARS_CoV_2)
+
+#Check the length of the nucleotide string.
+nchar(SARS_CoV_2)
+```
+**CHUNK 2**
+
+*The whole genome of the rabies causing virus, lyssavirus read in as a txt file.*
+
+```{r}
+rabies <- read.delim("Rabies_lyssaviruss_whole_genome.txt")
+
+#Check summary of file.
+summary(rabies)
+
+#Check the length of the nucleotide string.
+nchar(rabies)
+```
+
+**CHUNK 3**
+
+*The whole genome of MersCov read in as a txt file.*
+
+```{r}
+MERSCOV <- read.delim("MERSCOV_whole_genome.txt")
+
+#Check summary of file.
+summary(MERSCOV)
+
+#Check the length of the nucleotide string.
+nchar(MERSCOV)
+```
+
+**CHUNK 4**
+
+*The whole genome of the west nile virus read in as a txt file.*
+
+```{r}
+west_nile_virus <- read.delim("West_Nile_Virus_whole_genome.txt")
+
+#Check summary of file.
+summary(west_nile_virus)
+
+#Check the length of the nucleotide string.
+nchar(west_nile_virus)
+```
+
+
+***Data from SWISS protein Database.***
+
+**CHUNK 5**
+
+*The spike gylcoprotein of SARS-COV-2 read in as a txt file.*
+
+```{r}
+SARS2_glyco <- read.delim("SARS2_Protein.txt")
+
+#Check summary of file.
+summary(SARS2_glyco)
+
+#Check the length of the nucleotide string.
+nchar(SARS2_glyco)
+```
+
+**CHUNK 6**
+
+*The glycoprotein of the rabies causing virus, lyssavirus read in as a txt file.*
+
+```{r}
+rabies_glyco <- read.delim("Rabies_protein.txt")
+
+#Check summary of file.
+summary(rabies_glyco)
+
+#Check the length of the nucleotide string.
+nchar(rabies_glyco)
+```
+
+**CHUNK 7**
+
+*The glycoprotein of MersCov read in as a txt file.*
+
+```{r}
+MERS_glyco <- read.delim("MERS_protein.txt")
+
+#Check summary of file.
+summary(MERS_glyco)
+
+#Check the length of the nucleotide string.
+nchar(MERS_glyco)
+```
+
+**CHUNK 8**
+
+*The polyprotein of the west nile virus read in as a txt file.*
+
+```{r}
+west_nile_poly <- read.delim("West_Nile_Virus_protein.txt")
+
+#Check summary of file.
+summary(west_nile_poly)
+
+#Check the length of the nucleotide string.
+nchar(west_nile_poly)
+```
+**Links/Descriptions of Sites**
+
+https://cen.acs.org/biological-chemistry/infectious-disease/know-novel-coronaviruss-29-proteins/98/web/2020/04
+
+https://www.sciencedaily.com/releases/2006/10/061004180053.htm
+
+
+
+**Links to Scientific Articles**
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4997593/
+
+https://journals.asm.org/doi/10.1128/JVI.00768-06
+
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3154464/
